@@ -1,0 +1,16 @@
+# RateMyForm runtime dependencies (tested together on Windows 11, Python 3.13.17, CPU only).
+# Install with:  python -m pip install -r requirements.txt
+#
+# Pin notes:
+# - mediapipe 1.x removed the legacy `mp.solutions` API; we use the Tasks API (PoseLandmarker).
+# - mediapipe depends on opencv-contrib-python. 4.12.0.88 is pinned because the newer 5.x wheel's
+#   native DLL was blocked by Windows Application Control (Smart App Control) on the dev machine.
+# - pyarrow 21.0.0 is pinned for the same reason (pyarrow 26's compute DLL was blocked).
+#   Streamlit needs pyarrow for tables. On machines without that policy, newer versions may work.
+mediapipe==1.2.3
+opencv-contrib-python==4.12.0.88
+numpy==2.2.6
+streamlit==1.67.0
+pyarrow==21.0.0
+pandas==3.1.1
+matplotlib==3.11.2

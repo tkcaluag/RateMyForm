@@ -1,0 +1,2 @@
+video,true_reps,camera_angle,distance_m,lighting,clothing,torso_cm,femur_cm,lower_leg_cm,arm_cm,notes
+example_side_bright_fitted.mp4,5,side,3,bright,fitted,50,43,42,58,replace this row with a real recording

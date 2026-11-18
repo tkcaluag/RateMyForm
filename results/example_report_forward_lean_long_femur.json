@@ -1,0 +1,420 @@
+{
+  "schema_version": "1.0",
+  "exercise": "squat",
+  "source": "synthetic",
+  "disclaimer": "RateMyForm scores are prototype estimates from a single-camera video. They are not a validated injury-risk, medical, or clinical assessment, and they do not replace a certified trainer, physical therapist, or medical professional. Stop if you feel pain.",
+  "input": {
+    "video": {},
+    "measurements_cm": {
+      "torso_cm": 48.0,
+      "femur_cm": 50.0,
+      "lower_leg_cm": 42.0,
+      "arm_cm": 57.0
+    },
+    "entered_ratios": {
+      "femur_to_torso": 1.042,
+      "lower_leg_to_femur": 0.84,
+      "arm_to_torso": 1.188
+    }
+  },
+  "processing": {
+    "frames_analyzed": 532,
+    "frames_with_person": 532,
+    "detection_rate": 1.0,
+    "analysis_fps": 30.0,
+    "joint_angle_source": "world",
+    "facing": "right",
+    "side_visibility": {
+      "left": 0.98,
+      "right": 0.55
+    },
+    "median_knee_2d_vs_3d_difference_deg": 0.0,
+    "pose_seconds": null,
+    "analysis_seconds": 0.03,
+    "model_variant": "synthetic"
+  },
+  "camera": {
+    "side_analyzed": "left",
+    "orientation": {
+      "label": "side",
+      "index": 0.0,
+      "message": "Side view detected. Lean and depth measurements are usable."
+    }
+  },
+  "ratio_checks": [
+    {
+      "name": "femur_to_torso",
+      "entered": 1.042,
+      "video_estimate": 1.024,
+      "relative_difference": 0.017,
+      "consistent": true,
+      "message": "Entered femur/torso ratio 1.04 vs. video estimate 1.02 (2% difference)."
+    },
+    {
+      "name": "lower_leg_to_femur",
+      "entered": 0.84,
+      "video_estimate": 0.84,
+      "relative_difference": 0.0,
+      "consistent": true,
+      "message": "Entered lower-leg/femur ratio 0.84 vs. video estimate 0.84 (0% difference)."
+    },
+    {
+      "name": "arm_to_torso",
+      "entered": 1.188,
+      "video_estimate": 1.169,
+      "relative_difference": 0.016,
+      "consistent": true,
+      "message": "Entered arm/torso ratio 1.19 vs. video estimate 1.17 (2% difference)."
+    }
+  ],
+  "video_ratio_estimates": {
+    "femur_to_torso": 1.024,
+    "lower_leg_to_femur": 0.84,
+    "arm_to_torso": 1.169,
+    "frames_used": 252
+  },
+  "thresholds": {
+    "baseline": {
+      "label": "baseline",
+      "depth_target_knee_angle_deg": 100.0,
+      "torso_lean_limit_deg": 45.0,
+      "chest_drop_threshold_deg": 10.0,
+      "torso_lean_adjustment_deg": 0.0,
+      "rationale": [
+        "Baseline: identical reference values for every user (the 'one correct form' approach)."
+      ]
+    },
+    "personalized": {
+      "label": "personalized",
+      "depth_target_knee_angle_deg": 100.0,
+      "torso_lean_limit_deg": 55.0,
+      "chest_drop_threshold_deg": 10.0,
+      "torso_lean_adjustment_deg": 10.0,
+      "rationale": [
+        "Your femur/torso ratio is 1.04 (reference 0.85) and your lower-leg/femur ratio is 0.84 (reference 1.00).",
+        "A simple balance model predicts about 37.2 deg of torso lean at parallel for your proportions vs. 25.2 deg for the reference proportions, so your torso-lean limit allows 10.0 deg more lean than the baseline.",
+        "The model suggested +12.0 deg, which was capped at 10 deg so a single measurement cannot change the evaluation too much.",
+        "Depth and chest-drop reference values are not personalized in this prototype. This adjustment is a prototype heuristic, not a validated guideline."
+      ]
+    }
+  },
+  "summary": {
+    "rep_count": 5,
+    "overall_score_baseline": 9.0,
+    "overall_score_personalized": 10.0,
+    "feedback": [
+      "Every measurement that could be scored stayed within the reference ranges this prototype checks (depth, torso lean, and chest drop)."
+    ],
+    "warnings": []
+  },
+  "reps": [
+    {
+      "measurements": {
+        "rep_number": 1,
+        "start_time_s": 1.33,
+        "bottom_time_s": 2.27,
+        "end_time_s": 3.23,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 60.6,
+        "torso_lean_deg": 50.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 1,
+        "label": "baseline",
+        "score": 9.0,
+        "deductions": [
+          {
+            "rule": "torso_lean",
+            "points": 1.0,
+            "measured_value": 50.0,
+            "reference_value": 45.0,
+            "unit": "deg",
+            "message": "Rep 1: your torso leaned about 50 deg from vertical at the bottom, farther forward than the 45 deg reference (-1.0).",
+            "personalized_reference": false
+          }
+        ],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 1,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    },
+    {
+      "measurements": {
+        "rep_number": 2,
+        "start_time_s": 4.63,
+        "bottom_time_s": 5.57,
+        "end_time_s": 6.53,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 60.6,
+        "torso_lean_deg": 50.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 2,
+        "label": "baseline",
+        "score": 9.0,
+        "deductions": [
+          {
+            "rule": "torso_lean",
+            "points": 1.0,
+            "measured_value": 50.0,
+            "reference_value": 45.0,
+            "unit": "deg",
+            "message": "Rep 2: your torso leaned about 50 deg from vertical at the bottom, farther forward than the 45 deg reference (-1.0).",
+            "personalized_reference": false
+          }
+        ],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 2,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    },
+    {
+      "measurements": {
+        "rep_number": 3,
+        "start_time_s": 7.93,
+        "bottom_time_s": 8.87,
+        "end_time_s": 9.83,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 60.6,
+        "torso_lean_deg": 50.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 3,
+        "label": "baseline",
+        "score": 9.0,
+        "deductions": [
+          {
+            "rule": "torso_lean",
+            "points": 1.0,
+            "measured_value": 50.0,
+            "reference_value": 45.0,
+            "unit": "deg",
+            "message": "Rep 3: your torso leaned about 50 deg from vertical at the bottom, farther forward than the 45 deg reference (-1.0).",
+            "personalized_reference": false
+          }
+        ],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 3,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    },
+    {
+      "measurements": {
+        "rep_number": 4,
+        "start_time_s": 11.23,
+        "bottom_time_s": 12.17,
+        "end_time_s": 13.13,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 60.6,
+        "torso_lean_deg": 50.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 4,
+        "label": "baseline",
+        "score": 9.0,
+        "deductions": [
+          {
+            "rule": "torso_lean",
+            "points": 1.0,
+            "measured_value": 50.0,
+            "reference_value": 45.0,
+            "unit": "deg",
+            "message": "Rep 4: your torso leaned about 50 deg from vertical at the bottom, farther forward than the 45 deg reference (-1.0).",
+            "personalized_reference": false
+          }
+        ],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 4,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    },
+    {
+      "measurements": {
+        "rep_number": 5,
+        "start_time_s": 14.53,
+        "bottom_time_s": 15.47,
+        "end_time_s": 16.43,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 60.6,
+        "torso_lean_deg": 50.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 5,
+        "label": "baseline",
+        "score": 9.0,
+        "deductions": [
+          {
+            "rule": "torso_lean",
+            "points": 1.0,
+            "measured_value": 50.0,
+            "reference_value": 45.0,
+            "unit": "deg",
+            "message": "Rep 5: your torso leaned about 50 deg from vertical at the bottom, farther forward than the 45 deg reference (-1.0).",
+            "personalized_reference": false
+          }
+        ],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 5,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    }
+  ],
+  "baseline_vs_personalized": [
+    {
+      "rep_number": 1,
+      "baseline_score": 9.0,
+      "personalized_score": 10.0,
+      "difference": 1.0,
+      "rules_changed": [
+        "torso_lean"
+      ]
+    },
+    {
+      "rep_number": 2,
+      "baseline_score": 9.0,
+      "personalized_score": 10.0,
+      "difference": 1.0,
+      "rules_changed": [
+        "torso_lean"
+      ]
+    },
+    {
+      "rep_number": 3,
+      "baseline_score": 9.0,
+      "personalized_score": 10.0,
+      "difference": 1.0,
+      "rules_changed": [
+        "torso_lean"
+      ]
+    },
+    {
+      "rep_number": 4,
+      "baseline_score": 9.0,
+      "personalized_score": 10.0,
+      "difference": 1.0,
+      "rules_changed": [
+        "torso_lean"
+      ]
+    },
+    {
+      "rep_number": 5,
+      "baseline_score": 9.0,
+      "personalized_score": 10.0,
+      "difference": 1.0,
+      "rules_changed": [
+        "torso_lean"
+      ]
+    }
+  ],
+  "uncounted_movements": []
+}

@@ -1,0 +1,14 @@
+[server]
+# Matches InputLimits.max_upload_mb in ratemyform/config.py
+maxUploadSize = 200
+# Privacy: only this computer can open the app (videos of people are uploaded).
+# For a deliberate LAN demo, run: streamlit run app.py --server.address 0.0.0.0
+address = "localhost"
+
+[browser]
+# Privacy: Streamlit collects anonymous usage statistics unless this is off.
+gatherUsageStats = false
+
+[theme]
+# Light theme so the light-background result charts match the page.
+base = "light"

@@ -1,0 +1,369 @@
+{
+  "schema_version": "1.0",
+  "exercise": "squat",
+  "source": "synthetic",
+  "disclaimer": "RateMyForm scores are prototype estimates from a single-camera video. They are not a validated injury-risk, medical, or clinical assessment, and they do not replace a certified trainer, physical therapist, or medical professional. Stop if you feel pain.",
+  "input": {
+    "video": {},
+    "measurements_cm": {
+      "torso_cm": 50.0,
+      "femur_cm": 43.0,
+      "lower_leg_cm": 43.0,
+      "arm_cm": 57.0
+    },
+    "entered_ratios": {
+      "femur_to_torso": 0.86,
+      "lower_leg_to_femur": 1.0,
+      "arm_to_torso": 1.14
+    }
+  },
+  "processing": {
+    "frames_analyzed": 532,
+    "frames_with_person": 532,
+    "detection_rate": 1.0,
+    "analysis_fps": 30.0,
+    "joint_angle_source": "world",
+    "facing": "right",
+    "side_visibility": {
+      "left": 0.97,
+      "right": 0.55
+    },
+    "median_knee_2d_vs_3d_difference_deg": 0.0,
+    "pose_seconds": null,
+    "analysis_seconds": 0.029,
+    "model_variant": "synthetic"
+  },
+  "camera": {
+    "side_analyzed": "left",
+    "orientation": {
+      "label": "side",
+      "index": 0.0,
+      "message": "Side view detected. Lean and depth measurements are usable."
+    }
+  },
+  "ratio_checks": [
+    {
+      "name": "femur_to_torso",
+      "entered": 0.86,
+      "video_estimate": 0.846,
+      "relative_difference": 0.016,
+      "consistent": true,
+      "message": "Entered femur/torso ratio 0.86 vs. video estimate 0.85 (2% difference)."
+    },
+    {
+      "name": "lower_leg_to_femur",
+      "entered": 1.0,
+      "video_estimate": 1.0,
+      "relative_difference": 0.0,
+      "consistent": true,
+      "message": "Entered lower-leg/femur ratio 1.00 vs. video estimate 1.00 (0% difference)."
+    },
+    {
+      "name": "arm_to_torso",
+      "entered": 1.14,
+      "video_estimate": 1.124,
+      "relative_difference": 0.014,
+      "consistent": true,
+      "message": "Entered arm/torso ratio 1.14 vs. video estimate 1.12 (1% difference)."
+    }
+  ],
+  "video_ratio_estimates": {
+    "femur_to_torso": 0.846,
+    "lower_leg_to_femur": 1.0,
+    "arm_to_torso": 1.124,
+    "frames_used": 252
+  },
+  "thresholds": {
+    "baseline": {
+      "label": "baseline",
+      "depth_target_knee_angle_deg": 100.0,
+      "torso_lean_limit_deg": 45.0,
+      "chest_drop_threshold_deg": 10.0,
+      "torso_lean_adjustment_deg": 0.0,
+      "rationale": [
+        "Baseline: identical reference values for every user (the 'one correct form' approach)."
+      ]
+    },
+    "personalized": {
+      "label": "personalized",
+      "depth_target_knee_angle_deg": 100.0,
+      "torso_lean_limit_deg": 45.3,
+      "chest_drop_threshold_deg": 10.0,
+      "torso_lean_adjustment_deg": 0.3,
+      "rationale": [
+        "Your femur/torso ratio is 0.86 (reference 0.85) and your lower-leg/femur ratio is 1.00 (reference 1.00).",
+        "A simple balance model predicts about 25.5 deg of torso lean at parallel for your proportions vs. 25.2 deg for the reference proportions, so your torso-lean limit allows 0.3 deg more lean than the baseline.",
+        "Depth and chest-drop reference values are not personalized in this prototype. This adjustment is a prototype heuristic, not a validated guideline."
+      ]
+    }
+  },
+  "summary": {
+    "rep_count": 5,
+    "overall_score_baseline": 10.0,
+    "overall_score_personalized": 10.0,
+    "feedback": [
+      "Every measurement that could be scored stayed within the reference ranges this prototype checks (depth, torso lean, and chest drop).",
+      "1 of 5 reps had at least one measurement that could not be scored reliably (see each rep for details). Better lighting, fitted clothing, and a side-on camera usually help."
+    ],
+    "warnings": []
+  },
+  "reps": [
+    {
+      "measurements": {
+        "rep_number": 1,
+        "start_time_s": 1.33,
+        "bottom_time_s": 2.27,
+        "end_time_s": 3.23,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 75.2,
+        "torso_lean_deg": 35.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 1,
+        "label": "baseline",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 1,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    },
+    {
+      "measurements": {
+        "rep_number": 2,
+        "start_time_s": 4.63,
+        "bottom_time_s": 5.57,
+        "end_time_s": 6.53,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": null,
+        "torso_lean_deg": null,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": null,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": false,
+          "torso_lean": false,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": false
+        },
+        "reliability_notes": [
+          "The hip angle could not be measured reliably near the bottom of this rep (landmarks visible in 0% of nearby frames), so it was not scored.",
+          "The torso lean could not be measured reliably near the bottom of this rep (landmarks visible in 0% of nearby frames), so it was not scored."
+        ],
+        "low_confidence": true
+      },
+      "baseline": {
+        "rep_number": 2,
+        "label": "baseline",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": [
+          "torso_lean",
+          "chest_drop"
+        ]
+      },
+      "personalized": {
+        "rep_number": 2,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": [
+          "torso_lean",
+          "chest_drop"
+        ]
+      }
+    },
+    {
+      "measurements": {
+        "rep_number": 3,
+        "start_time_s": 7.93,
+        "bottom_time_s": 8.87,
+        "end_time_s": 9.83,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 75.2,
+        "torso_lean_deg": 35.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 3,
+        "label": "baseline",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 3,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    },
+    {
+      "measurements": {
+        "rep_number": 4,
+        "start_time_s": 11.23,
+        "bottom_time_s": 12.17,
+        "end_time_s": 13.13,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 75.2,
+        "torso_lean_deg": 35.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 4,
+        "label": "baseline",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 4,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    },
+    {
+      "measurements": {
+        "rep_number": 5,
+        "start_time_s": 14.53,
+        "bottom_time_s": 15.47,
+        "end_time_s": 16.43,
+        "duration_s": 1.9,
+        "knee_angle_deg": 80.0,
+        "hip_angle_deg": 75.2,
+        "torso_lean_deg": 35.0,
+        "shin_lean_deg": 30.0,
+        "depth_ratio": -0.34,
+        "depth_class": "above parallel",
+        "chest_drop_deg": 0.0,
+        "knee_angle_2d_deg": 80.0,
+        "knee_angle_3d_deg": 80.0,
+        "reliable": {
+          "knee_angle": true,
+          "hip_angle": true,
+          "torso_lean": true,
+          "shin_lean": true,
+          "depth_ratio": true,
+          "chest_drop": true
+        },
+        "reliability_notes": [],
+        "low_confidence": false
+      },
+      "baseline": {
+        "rep_number": 5,
+        "label": "baseline",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      },
+      "personalized": {
+        "rep_number": 5,
+        "label": "personalized",
+        "score": 10.0,
+        "deductions": [],
+        "not_scored": []
+      }
+    }
+  ],
+  "baseline_vs_personalized": [
+    {
+      "rep_number": 1,
+      "baseline_score": 10.0,
+      "personalized_score": 10.0,
+      "difference": 0.0,
+      "rules_changed": []
+    },
+    {
+      "rep_number": 2,
+      "baseline_score": 10.0,
+      "personalized_score": 10.0,
+      "difference": 0.0,
+      "rules_changed": []
+    },
+    {
+      "rep_number": 3,
+      "baseline_score": 10.0,
+      "personalized_score": 10.0,
+      "difference": 0.0,
+      "rules_changed": []
+    },
+    {
+      "rep_number": 4,
+      "baseline_score": 10.0,
+      "personalized_score": 10.0,
+      "difference": 0.0,
+      "rules_changed": []
+    },
+    {
+      "rep_number": 5,
+      "baseline_score": 10.0,
+      "personalized_score": 10.0,
+      "difference": 0.0,
+      "rules_changed": []
+    }
+  ],
+  "uncounted_movements": []
+}
